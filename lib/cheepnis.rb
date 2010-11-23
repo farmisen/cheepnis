@@ -1,4 +1,5 @@
 module Cheepnis
+  require 'heroku'
 
   # starts up a Heroku worker if none are active
   # Author: Mike Travers Feb 2010
@@ -29,27 +30,16 @@ module Cheepnis
     workers = info[:workers].to_i
     if workers == 0
       heroku.set_workers(ENV['APP_NAME'], 1)
-      Rails.logger.info('worker started')
     end
   end
 
   def self.stop
-    heroku = get_client
-    heroku.set_workers(ENV['APP_NAME'], 0)
-    Rails.logger.info('worker stopped')
+    get_client.set_workers(ENV['APP_NAME'], 0)
   end
 
   # this needs some experimentation
   def self.maybe_stop
-    count = Delayed::Job.count
-    if count == 1
-      stop
-    else
-      # if there are actual jobs, fail so we will run again
-      # won't work because jobs that fail many times get terminated
-      # so just fall through and assume that a later terminator will run
-      # throw "Not time to stop yet"
-    end
+    stop unless Delayed::Job.count > 1
   end
 
   class Terminator

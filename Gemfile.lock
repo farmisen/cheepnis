@@ -1,0 +1,40 @@
+GIT
+  remote: git://github.com/collectiveidea/delayed_job.git
+  revision: fcca64c20c60b5d93d2ca7ad416ae30e33e588e7
+  specs:
+    delayed_job (2.1.1)
+      activesupport (~> 3.0)
+      daemons
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (3.0.3)
+    configuration (1.1.0)
+    daemons (1.1.0)
+    git (1.2.5)
+    heroku (1.12.1)
+      json_pure (>= 1.2.0, < 1.5.0)
+      launchy (~> 0.3.2)
+      rest-client (>= 1.4.0, < 1.7.0)
+    jeweler (1.5.1)
+      bundler (~> 1.0.0)
+      git (>= 1.2.5)
+      rake
+    json_pure (1.4.6)
+    launchy (0.3.7)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
+    mime-types (1.16)
+    rake (0.8.7)
+    rest-client (1.6.1)
+      mime-types (>= 1.16)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.0.0)
+  delayed_job!
+  heroku
+  jeweler (~> 1.5.1)
