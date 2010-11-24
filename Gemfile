@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem 'heroku'
-gem 'delayed_job', :git => 'git://github.com/collectiveidea/delayed_job.git'
+gem 'delayed_job', :git => 'git://github.com/farmisen/delayed_job.git'
 
 
 group :development do
